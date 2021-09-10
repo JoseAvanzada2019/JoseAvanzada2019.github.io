@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "deploy": "gh-pages -d index.js",
+    "deploy": "gh-pages -d src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
