@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>T1-Ciudades</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body> 
+    <table class="table table-inverse">
+      <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+        </style>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>email</th>
+          <th>nacimiento</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td><%= data["id"] %> </td>
+          <td><%= data["name"] %> <%= data["lastname"] %></td>
+          <td><%= data["email"] %> </td>
+          <td><%= data["birthdate"] %> </td>
+        </tr>
+      </tbody>
+    </table>
+    <span></span>
+        <table class="table table-inverse">
+            <caption>Tarjetas asociadas:</caption>
+          <style>
+            table, th, td {
+              border: 1px solid black;
+            }
+            </style>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Id</th>
+              <th>cvv</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i < data2.length; i++) { %>
+                <tr>
+                  <td><%= data2[i].id %></td>
+                  <td><%= data2[i].creditCard %></td>
+                  <td><%= data2[i].CVV %></td>
+                </tr>
+                <% } %>
+          </tbody>
+        </table>
+        <span></span>
+        <form action="<%= action %>" method="post"> 
+            <table class="table table-inverse">
+                <caption>Direcciones asociadas:</caption>
+              <style>
+                table, th, td {
+                  border: 1px solid black;
+                }
+                </style>
+              <thead>
+                <tr>
+                  <th>Dirección</th>
+                  <th>zip</th>
+                  <th>Ciudad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i < data3.length; i++) { %>
+                    <tr>
+                      <td><%= data3[i].address %></td>
+                      <td><%= data3[i].zip %></td>
+                      <td><button type="submit" value= <%=JSON.strigify(data3[i].city) %> name="action"><%-data3[i].city.name%></button></td>
+                    </tr>
+                    <% } %>
+              </tbody>
+            </table>
+          </form>
+  <body>
+</html>
